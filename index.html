@@ -11,6 +11,16 @@
     :root {
       --bg: #ffffff;
       --text: #000000;
+
+/* Paleta institucional y de conversión */
+  --color-primario: #003366;
+  --color-secundario: #005baa;
+  --color-acento: #28a745;
+  --color-alerta: #ff8c42;
+  --color-fondo-claro: #f2f4f8;
+  --color-texto-principal: #333333;
+  --color-texto-secundario: #666666;
+
     }
 
     .dark-mode {
@@ -38,7 +48,7 @@
 
 
     header {
-      background-color: #003366;
+      background-color: var(--color-primario);
       color: white;
     }
 
@@ -110,7 +120,7 @@ form {
   max-width: 600px;
   margin: 30px auto;
   padding: 30px;
-  background-color: #f9f9f9;
+  background-color: var(--color-fondo-claro);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', sans-serif;
@@ -120,7 +130,7 @@ label {
   display: flex;
   flex-direction: column;
   font-weight: 600;
-  color: #444;
+  color: var(--color-texto-principal);
   margin-bottom: 10px;
 }
 
@@ -150,7 +160,7 @@ textarea:focus {
 
 button {
   padding: 14px;
-  background-color: #005baa;
+  background-color: var(--color-secundario);
   color: white;
   border: none;
   border-radius: 8px;
@@ -161,7 +171,7 @@ button {
 }
 
 button:hover {
-  background-color: #003f7d;
+  background-color: var(--color-secundario);
 }
 
 
@@ -226,7 +236,7 @@ button:hover {
 }
 
 .boton-contacto button {
-  background-color: #003366;
+  background-color: var(--color-primario);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -245,7 +255,7 @@ button:hover {
 
 
 footer {
-  background-color: #002244;
+  background-color: var(--color-primario);
   color: white;
   text-align: center;
   padding: 1rem;
@@ -258,7 +268,7 @@ footer {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
-  object-position: center 20%; /* ← esto baja el encuadre ligeramente */
+  object-position: center 20%; /* ← esto baja el encuadre ligeramente no es imgan de cabecera */
   display: block;
   margin-bottom: 20px;
 }
@@ -331,10 +341,11 @@ footer {
 
 .imagen-servicios-unica {
   width: 100%;
-  max-height: 280px;
+  max-height: 400px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   object-fit: cover;
+  object-position: center 20%; /* ← sube el encuadre para mostrar el rostro */
 }
 
 
@@ -369,53 +380,228 @@ body.dark-mode h2 {
   color: #eee;
 }
 
-let index = 0;
-const slide = document.querySelector(".carousel-slide");
-const dots = document.querySelectorAll(".dot");
-const totalImages = slide.querySelectorAll("img").length;
-
-// Ajusta el ancho del carrusel dinámicamente
-slide.style.width = `${totalImages * 100}%`;
-
-function showSlide(i) {
-  index = i;
-  slide.style.transform = `translateX(-${index * 100}%)`;
-  dots.forEach(dot => dot.classList.remove("active"));
-  dots[index].classList.add("active");
+body.dark-mode .columna-servicios-derecha h3 {
+  color: #eee;
 }
 
-document.querySelector(".prev").addEventListener("click", () => {
-  index = (index - 1 + totalImages) % totalImages;
-  showSlide(index);
-});
-
-document.querySelector(".next").addEventListener("click", () => {
-  index = (index + 1) % totalImages;
-  showSlide(index);
-});
-
-dots.forEach(dot => {
-  dot.addEventListener("click", () => {
-    showSlide(parseInt(dot.getAttribute("data-index")));
-  });
-});
-
-setInterval(() => {
-  index = (index + 1) % totalImages;
-  showSlide(index);
-}, 5000);
-
-// Inicializa
-showSlide(index);
+body.dark-mode .columna-servicios-derecha button {
+  background-color: #005baa;
+  color: white;
+  border: none;
+}
 
 
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ← 3 columnas automáticas */
+  gap: 2rem; /* ← espacio entre tarjetas */
+  padding: 2rem;
+}
 
+.servicio-card {
+  background-color: var(--color-fondo-claro);
+  border-radius: 8px;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+.servicio-card img {
+  width: 100%;
+  max-width: 300px; /* o 400px si prefieres más grande */
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.servicio-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.servicio-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.servicio-card button {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.select-resaltado {
+  border: 2px solid #005baa;
+  box-shadow: 0 0 10px rgba(0, 91, 170, 0.6);
+  background-color: #eef6ff;
+  transition: all 0.3s ease;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  overflow-y: auto; /* ← scroll vertical si el modal es alto */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1000;
+  padding: 2rem 0;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-contenido {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 2rem 0; /* espacio vertical */
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .modal-contenido {
+    padding: 1rem;
+  }
+
+  .cerrar-modal {
+    font-size: 2rem;
+  }
+}
+
+
+body.dark-mode #modal-contacto {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+body.dark-mode .modal-contenido {
+  background-color: #1e1e1e;
+  color: #eee;
+  border: 1px solid #333;
+}
+
+body.dark-mode .cerrar-modal {
+  color: #eee;
+}
+
+body.dark-mode select,
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: #f9f9f9;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+body.dark-mode button {
+  background-color: #005baa;
+  color: white;
+}
+
+body.dark-mode .servicio-card h3,
+body.dark-mode .servicio-card p,
+body.dark-mode .servicio-card button {
+  color: #000 !important;
+}
+
+.texto-animado {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 0.8s ease forwards;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease-out forwards;
+}
 
 
   </style>
 </head>
 
 <body>
+
+
+<div id="modal-contacto" class="modal hidden">
+  <div class="modal-contenido">
+    <button class="cerrar-modal" onclick="cerrarModal()">×</button>
+    <h2>Contáctanos</h2>
+    <form id="consulta-form">
+      <label>
+        <span>Agende fecha y hora:</span>
+        <input type="datetime-local" name="fechaHora" required />
+      </label>
+
+      <label>
+        <span>Elija la especialidad:</span>
+        <select id="especialidad" name="especialidad" required>
+          <option value="alimentos">Alimentos</option>
+          <option value="tenencia">Demanda de tenencia</option>
+          <option value="civil">Derecho Civil</option>
+          <option value="penal">Derecho Penal</option>
+          <option value="sunarp">SUNARP</option>
+          <option value="indecopi">INDECOPI</option>
+          <option value="empresas">Constitución de empresas</option>
+          <option value="patria">Patria Potestad</option>
+          <option value="sucesion">Sucesión Testamentaria</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Bríndenos su celular:</span>
+        <input type="tel" name="telefono" required />
+      </label>
+
+      <label>
+        <span>Detalle su consulta:</span>
+        <textarea name="consulta" rows="5" required></textarea>
+      </label>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+
   <!-- Barra superior institucional -->
   <div class="topbar">
     <p>📞 <a href="tel:+51906363300" style="color: white; text-decoration: none;">+51 906 363 300</a> |
@@ -503,21 +689,71 @@ showSlide(index);
 </div>
 
 
-  <form>
-    <label>Seleccione una especialidad:
-      <select name="especialidad">
-        <option value="alimentos">Alimentos</option>
-        <option value="tenencia">Demanda de tenencia</option>
-        <option value="civil">Derecho Civil</option>
-        <option value="penal">Derecho Penal</option>
-        <option value="sunarp">SUNARP</option>
-        <option value="indecopi">INDECOPI</option>
-        <option value="empresas">Constitución de empresas</option>
-        <option value="patria">Patria Potestad</option>
-        <option value="sucesion">Sucesión Testamentaria</option>
-      </select>
-    </label>
-  </form>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <img src="images/icon_alimentos.jpg" alt="Alimentos" />
+      <h3 class="fade-slide-up">Alimentos</h3>
+      <p class="fade-slide-up">Brindamos asesoría en pensión alimenticia para menores, adultos mayores y personas con discapacidad. Te ayudamos a establecer acuerdos justos y sostenibles, ya sea por vía judicial o conciliación. Protegemos el bienestar de quienes más lo necesitan.</p>
+      <button onclick="abrirFormulario('alimentos')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_tenencia.jpg" alt="Demanda de Tenencia" />
+      <h3 class="fade-slide-up">Demanda de Tenencia</h3>
+      <p class="fade-slide-up">Acompañamos procesos de tenencia y régimen de visitas con sensibilidad y firmeza. Buscamos soluciones que prioricen el interés superior del menor y promuevan vínculos familiares saludables. Tu tranquilidad y la de tus hijos es nuestra prioridad.</p>
+      <button onclick="abrirFormulario('tenencia')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_civil.jpg" alt="Derecho Civil" />
+      <h3 class="fade-slide-up">Derecho Civil</h3>
+      <p class="fade-slide-up">Resolvemos conflictos relacionados con contratos, propiedad, herencias, daños y obligaciones civiles. Protegemos tu patrimonio con estrategias legales claras y efectivas. Tu seguridad jurídica es nuestra misión.</p>
+      <button onclick="abrirFormulario('civil')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_penal.jpg" alt="Derecho Penal" />
+      <h3 class="fade-slide-up">Derecho Penal</h3>
+      <p class="fade-slide-up">Defendemos tus derechos ante acusaciones penales, denuncias y procesos judiciales. Asumimos cada caso con rigor, ética y compromiso. Tu defensa es nuestra prioridad, desde la investigación hasta el juicio.</p>
+      <button onclick="abrirFormulario('penal')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/image_4.png" alt="SUNARP" />
+      <h3 class="fade-slide-up">SUNARP</h3>
+      <p class="fade-slide-up">Te asesoramos en trámites registrales ante SUNARP: inscripción de propiedades, rectificaciones, independizaciones y más. Garantizamos que tus actos jurídicos tengan plena validez y respaldo legal. Evita observaciones y asegura tu inversión.</p>
+      <button onclick="abrirFormulario('sunarp')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_indecopi.jpg" alt="INDECOPI" />
+      <h3 class="fade-slide-up">INDECOPI</h3>
+      <p class="fade-slide-up">Protegemos tus derechos como consumidor y tu propiedad intelectual. Te representamos ante INDECOPI en casos de reclamos, marcas, patentes y defensa de la libre competencia. Tu innovación y tu voz merecen ser escuchadas.</p>
+      <button onclick="abrirFormulario('indecopi')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_empresas.jpg" alt="Constitución de Empresas" />
+      <h3 class="fade-slide-up">Constitución de Empresas</h3>
+      <p class="fade-slide-up">Te guiamos en la creación legal de tu empresa, desde el estatuto hasta la inscripción formal. Aseguramos que tu emprendimiento cumpla con todos los requisitos y tenga bases sólidas. Comienza con respaldo jurídico desde el primer día.</p>
+      <button onclick="abrirFormulario('empresas')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_patria.jpg" alt="Patria Potestad" />
+      <h3 class="fade-slide-up">Patria Potestad</h3>
+      <p class="fade-slide-up">Asesoramos en procesos de suspensión, recuperación o ejercicio de la patria potestad. Defendemos el derecho de los padres y el bienestar de los hijos con enfoque legal y humano. Cada familia merece soluciones justas y responsables.</p>
+      <button onclick="abrirFormulario('patria')">Más información</button>
+    </div>
+
+    <div class="servicio-card">
+      <img src="images/icon_sucesion.jpg" alt="Sucesión Testamentaria" />
+      <h3 class="fade-slide-up">Sucesión Testamentaria</h3>
+      <p class="fade-slide-up">Te ayudamos a gestionar herencias, testamentos y particiones con orden y legalidad. Evita conflictos familiares y asegura que tus decisiones se respeten. La planificación sucesoria es un acto de responsabilidad y amor.</p>
+      <button onclick="abrirFormulario('sucesion')">Más información</button>
+    </div>
+
+  </div>
 
 </section>
 
@@ -539,7 +775,7 @@ showSlide(index);
 
   <label>
     <span>Elija la especialidad:</span>
-    <select name="especialidad" required>
+    <select id="especialidad" name="especialidad" required>
         <option value="alimentos">Alimentos</option>
         <option value="tenencia">Demanda de tenencia</option>
         <option value="civil">Derecho Civil</option>
@@ -581,6 +817,37 @@ showSlide(index);
   </a>
 
 
+<script>
+  function abrirFormulario(especialidad) {
+    const modal = document.getElementById("modal-contacto");
+    const select = document.getElementById("especialidad");
+
+    if (modal) {
+      modal.classList.remove("hidden");
+    }
+
+    if (select) {
+      select.value = especialidad;
+      select.classList.add("select-resaltado");
+    }
+  }
+
+  function cerrarModal() {
+    const modal = document.getElementById("modal-contacto");
+    if (modal) {
+      modal.classList.add("hidden");
+    }
+  }
+
+  // Cierre con tecla Escape
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      cerrarModal();
+    }
+  });
+</script>
+
+
 </body>
 </html>  
 
@@ -590,9 +857,9 @@ showSlide(index);
 
   function actualizarBotonTema() {
     if (document.body.classList.contains("dark-mode")) {
-      themeToggle.innerHTML = "🌞 CLARO";
+      themeToggle.innerHTML = "🌞 MODO CLARO";
     } else {
-      themeToggle.innerHTML = "🌙 OSCURO";
+      themeToggle.innerHTML = "🌙 MODO OSCURO";
     }
   }
 
@@ -608,23 +875,36 @@ showSlide(index);
   const links = document.querySelectorAll("nav a[data-section]");
   const secciones = document.querySelectorAll(".seccion");
 
-  links.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      const target = link.getAttribute("data-section");
+links.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const target = link.getAttribute("data-section");
 
-      secciones.forEach(sec => {
-        sec.classList.remove("visible");
-        sec.classList.add("hidden");
-      });
-
-      const activa = document.getElementById(target);
-      if (activa) {
-        activa.classList.remove("hidden");
-        activa.classList.add("visible");
-      }
+    secciones.forEach(sec => {
+      sec.classList.remove("visible");
+      sec.classList.add("hidden");
     });
+
+    const activa = document.getElementById(target);
+    if (activa) {
+      activa.classList.remove("hidden");
+      activa.classList.add("visible");
+
+      // Reiniciar animación en SERVICIOS
+      if (target === "servicios") {
+        const elementos = activa.querySelectorAll(".fade-slide-up");
+        elementos.forEach(el => {
+          el.style.animation = "none"; // ← reinicia
+          void el.offsetWidth;         // ← fuerza reflow
+          el.style.animation = "fadeSlideUp 1s ease-out forwards"; // ← reaplica
+        });
+      }
+    }
+
+    // Scroll al inicio de la sección
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+});
 
   // Envío de formulario
   const form = document.getElementById("consulta-form");
