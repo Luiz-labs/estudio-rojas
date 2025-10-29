@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROJAS & ABOGADOS ASOCIADOS</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+    }
+
+    .dark-mode {
+      --bg: #121212;
+      --text: #f0f0f0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    .topbar {
+       background-color: #002244;
+       color: white;
+       font-size: 0.9rem;
+       padding: 0.5rem 1rem;
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+    }
+
+
+    header {
+      background-color: #003366;
+      color: white;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center; /* centra horizontalmente */
+      align-items: center;
+      height: 50px;      
+      overflow: hidden;
+    }
+
+    .logo img {
+      height: 80px; /* ← ajusta este valor según lo que necesites */
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo span {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    nav ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul.menu li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    section {
+      padding: 1.5rem;
+    }
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+
+label > span {
+  margin-bottom: 6px;
+  font-weight: bold; /* ← esto aplica la negrita */
+}
+
+
+input,
+select,
+textarea {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #005baa;
+  outline: none;
+}
+
+button {
+  padding: 14px;
+  background-color: #005baa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #003f7d;
+}
+
+
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float img {
+      width: 100%;
+    }
+
+    .seccion.hidden {
+      display: none;
+    }
+
+    .seccion.visible {
+      display: block;
+    }
+
+
+/* animación de entrada del texto de presentación */
+.intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease-out forwards;
+}
+
+.intro .columna {
+  flex: 1 1 45%;
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+  }
+}
+
+
+.boton-contacto {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.boton-contacto button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0,2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-contacto button:hover {
+  background-color: #005599;
+  transform: scale(1.05);
+}
+
+
+footer {
+  background-color: #002244;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+
+.imagen-principal,
+.imagen-servicios {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  object-position: center 20%; /* ← esto baja el encuadre ligeramente */
+  display: block;
+  margin-bottom: 20px;
+}
+.imagen-contacto {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.imagen-lateral,
+.imagen-secundaria {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  margin: 20px 0;
+}
+
+.intro.reorganizada {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.columna-izquierda,
+.columna-derecha {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titulo-central {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin: 40px auto;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.bloque-servicios-unico {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  margin: 60px auto;         /* Centra el bloque verticalmente */
+  padding: 0 10%;            /* ← Agrega espacio a los lados */
+  max-width: 1100px;         /* ← Limita el ancho total */
+  align-items: flex-start;
+}
+
+.columna-servicios-izquierda {
+  flex: 0 1 38%;
+}
+
+.columna-servicios-derecha {
+  flex: 1 1 62%;
+}
+
+.bloque-servicios-unico .columna-servicios-izquierda,
+.bloque-servicios-unico .columna-servicios-derecha {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.imagen-servicios-unica {
+  width: 100%;
+  max-height: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .bloque-servicios-unico {
+    flex-wrap: wrap;
+  }
+}
+
+/* Modo oscuro general */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Título centrado en INICIO */
+body.dark-mode .titulo-central {
+  color: #eee;
+}
+
+/* Bloque de SERVICIOS */
+body.dark-mode .bloque-servicios-unico {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode .columna-servicios-derecha p {
+  color: #ccc;
+}
+
+/* Títulos secundarios */
+body.dark-mode h2 {
+  color: #eee;
+}
+
+let index = 0;
+const slide = document.querySelector(".carousel-slide");
+const dots = document.querySelectorAll(".dot");
+const totalImages = slide.querySelectorAll("img").length;
+
+// Ajusta el ancho del carrusel dinámicamente
+slide.style.width = `${totalImages * 100}%`;
+
+function showSlide(i) {
+  index = i;
+  slide.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+document.querySelector(".prev").addEventListener("click", () => {
+  index = (index - 1 + totalImages) % totalImages;
+  showSlide(index);
+});
+
+document.querySelector(".next").addEventListener("click", () => {
+  index = (index + 1) % totalImages;
+  showSlide(index);
+});
+
+dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    showSlide(parseInt(dot.getAttribute("data-index")));
+  });
+});
+
+setInterval(() => {
+  index = (index + 1) % totalImages;
+  showSlide(index);
+}, 5000);
+
+// Inicializa
+showSlide(index);
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <!-- Barra superior institucional -->
+  <div class="topbar">
+    <p>📞 <a href="tel:+51906363300" style="color: white; text-decoration: none;">+51 906 363 300</a> |
+    ✉️ <a href="mailto:dra.gloriamariarojas@gmail.com" style="color: white; text-decoration: none;">dra.gloriamariarojas@gmail.com</a>
+   </p>
+  </div>
+
+  <!-- Encabezado principal -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="images/logo-estudio.png" alt="Logo del estudio" class="logo" />
+        <span>ROJAS & ABOGADOS ASOCIADOS</span>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a data-section="inicio">INICIO</a></li>
+          <li><a data-section="servicios">SERVICIOS</a></li>
+          <li><a data-section="contacto">CONTÁCTANOS</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle">🌙 OSCURO</button>
+    </div>
+  </header>
+
+
+<section id="inicio" class="seccion visible">
+
+  <!-- Imagen fija principal -->
+  <img src="images/image_1.png" alt="Imagen institucional" class="imagen-principal" />
+
+<!-- Título institucional centrado -->
+<h1 class="titulo-central">ROJAS & ABOGADOS ASOCIADOS</h1>
+  <div class="intro reorganizada">
+    <div class="columna-izquierda">
+      <p>Somos un Estudio Jurídico con una profunda vocación por la defensa y la justicia, cimentado en los pilares de la ética, el profesionalismo riguroso y una innegable cercanía con nuestros clientes.</p>
+      <p>En un entorno legal complejo, nuestra misión primordial es ser su socio estratégico y su defensa más sólida.</p> 
+      <p>Ofrecemos asesoría legal especializada e integral a través de las diversas ramas del derecho, garantizando un servicio de la más alta calidad técnica y humana.</p>
+
+      <!-- Imagen 4 debajo del texto -->
+      <img src="images/image_4.png" alt="Imagen de respaldo legal" class="imagen-secundaria" />
+    </div>
+
+    <div class="columna-derecha">
+      <!-- Imagen 3 reemplazando la segunda columna -->
+      <img src="images/image_3.png" alt="Imagen de confianza y experiencia" class="imagen-lateral" />
+
+      <!-- Texto original de la segunda columna debajo de la imagen -->
+      <div class="texto-derecha">
+        <p>Nos destacamos por nuestra habilidad para ofrecer soluciones jurídicas efectivas y estratégicas, tanto en la crucial fase preventiva (minimizando riesgos y asegurando la legalidad) como en la contenciosa (defendiendo sus intereses en instancias judiciales). Comprendemos que cada desafío es único, por lo que nuestra metodología se basa en la personalización absoluta, adaptando cada estrategia a las necesidades particulares y los objetivos específicos de cada cliente.</p>
+
+        <p>Nuestro trabajo está enfocado a brindarte la mejor asesoría legal en tu caso. Nos esforzamos por darte la confianza y la seguridad a la hora de tomar decisiones importantes.</p>
+
+        <p>Contáctanos para resolver todas tus dudas.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de contacto -->
+  <div class="boton-contacto">
+    <button onclick="abrirContacto()">📩 CONTÁCTANOS</button>
+  </div>
+
+</section>
+
+
+
+<section id="servicios" class="seccion hidden">
+
+  <!-- Imagen fija institucional -->
+  <img src="images/image_2.png" alt="Servicios legales" class="imagen-servicios-unica" />
+
+  <h2>Especialidades</h2>
+
+<div class="bloque-servicios-unico">
+  <div class="columna-servicios-izquierda">
+    <img src="images/image_5.png" alt="Imagen institucional de servicios" class="imagen-servicios" />
+  </div>
+
+  <div class="columna-servicios-derecha">
+    <p>En Rojas & Abogados Asociados, entendemos que cada especialidad jurídica requiere un enfoque preciso y personalizado. Nuestro equipo está preparado para brindarte asesoría experta en cada área del derecho, con el compromiso de proteger tus intereses y garantizar soluciones efectivas.</p>
+    <p>Explora nuestras especialidades y agenda tu consulta con la confianza de estar respaldado por profesionales que valoran tu tiempo, tu caso y tu tranquilidad.</p>
+  </div>
+</div>
+
+
+  <form>
+    <label>Seleccione una especialidad:
+      <select name="especialidad">
+        <option value="alimentos">Alimentos</option>
+        <option value="tenencia">Demanda de tenencia</option>
+        <option value="civil">Derecho Civil</option>
+        <option value="penal">Derecho Penal</option>
+        <option value="sunarp">SUNARP</option>
+        <option value="indecopi">INDECOPI</option>
+        <option value="empresas">Constitución de empresas</option>
+        <option value="patria">Patria Potestad</option>
+        <option value="sucesion">Sucesión Testamentaria</option>
+      </select>
+    </label>
+  </form>
+
+</section>
+
+  
+
+<section id="contacto" class="seccion hidden">
+
+  <!-- Imagen fija institucional -->
+  <img src="images/image_3.png" alt="Contáctanos" class="imagen-contacto" />
+
+  <h2>Contáctanos</h2>
+
+<form id="consulta-form">
+
+  <label>
+    <span>Agende fecha y hora:</span>
+    <input type="datetime-local" name="fechaHora" required />
+  </label>
+
+  <label>
+    <span>Elija la especialidad:</span>
+    <select name="especialidad" required>
+        <option value="alimentos">Alimentos</option>
+        <option value="tenencia">Demanda de tenencia</option>
+        <option value="civil">Derecho Civil</option>
+        <option value="penal">Derecho Penal</option>
+        <option value="sunarp">SUNARP</option>
+        <option value="indecopi">INDECOPI</option>
+        <option value="empresas">Constitución de empresas</option>
+        <option value="patria">Patria Potestad</option>
+        <option value="sucesion">Sucesión Testamentaria</option>
+    </select>
+  </label>
+
+  <label>
+    <span>Bríndenos su celular:</span>
+    <input type="tel" name="telefono" required />
+  </label>
+
+  <label>
+    <span>Detalle su consulta:</span>
+    <textarea name="consulta" rows="5" required></textarea>
+  </label>
+
+  <button type="submit">Enviar</button>
+</form>
+
+
+  
+</section>
+
+
+
+  <footer>
+  <p>&copy; 2025 ROJAS & ABOGADOS ASOCIADOS</p>
+  <p><a href="mailto:dra.gloriamariarojas@gmail.com" style="color: white;">Contáctanos</a> | <a href="#" style="color: white;">Política de privacidad</a></p>
+</footer>
+
+  <a href="https://wa.me/51906363300" class="whatsapp-float" target="_blank">
+    <img src="images/icon-whatsapp.svg" alt="WhatsApp" />
+  </a>
+
+
+</body>
+</html>  
+
+<script>
+  // Modo oscuro con texto dinámico
+  const themeToggle = document.getElementById("theme-toggle");
+
+  function actualizarBotonTema() {
+    if (document.body.classList.contains("dark-mode")) {
+      themeToggle.innerHTML = "🌞 CLARO";
+    } else {
+      themeToggle.innerHTML = "🌙 OSCURO";
+    }
+  }
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    actualizarBotonTema();
+  });
+
+  // Inicializa el texto del botón al cargar
+  actualizarBotonTema();
+
+  // Navegación entre secciones
+  const links = document.querySelectorAll("nav a[data-section]");
+  const secciones = document.querySelectorAll(".seccion");
+
+  links.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = link.getAttribute("data-section");
+
+      secciones.forEach(sec => {
+        sec.classList.remove("visible");
+        sec.classList.add("hidden");
+      });
+
+      const activa = document.getElementById(target);
+      if (activa) {
+        activa.classList.remove("hidden");
+        activa.classList.add("visible");
+      }
+    });
+  });
+
+  // Envío de formulario
+  const form = document.getElementById("consulta-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      const mailtoLink = `mailto:dra.gloriamariarojas@gmail.com?subject=Consulta%20Legal&body=
+Fecha y hora: ${data.fechaHora}
+Especialidad: ${data.especialidad}
+Teléfono: ${data.telefono}
+Consulta: ${data.consulta}`;
+
+      window.location.href = mailtoLink;
+    });
+  }
+
+
+
+
+function abrirContacto() {
+  const secciones = document.querySelectorAll(".seccion");
+  secciones.forEach(sec => {
+    sec.classList.remove("visible");
+    sec.classList.add("hidden");
+  });
+
+  const contacto = document.getElementById("contacto");
+  if (contacto) {
+    contacto.classList.remove("hidden");
+    contacto.classList.add("visible");
+  }
+}
+
+
+</script>
