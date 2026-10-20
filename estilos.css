@@ -258,6 +258,7 @@ p { margin: 0 0 1em; }
 .contacto-directo li:last-child { border-bottom: 1px solid var(--linea); }
 .contacto-directo span { display: block; font-size: .88rem; color: var(--tinta-suave); }
 .contacto-directo a { font-weight: 600; color: var(--toga); text-decoration: none; font-size: 1.05rem; word-break: break-word; }
+.contacto-directo strong { font-weight: 600; color: var(--toga); font-size: 1.05rem; }
 .contacto-directo a:hover { color: var(--oro-texto); text-decoration: underline; }
 
 .formulario {
@@ -290,6 +291,8 @@ p { margin: 0 0 1em; }
 .campo.resaltado select { border-color: var(--oro); box-shadow: 0 0 0 3px rgba(196,162,58,.35); }
 .campo [aria-invalid="true"] { border-color: var(--error); }
 .ayuda { font-size: .85rem; color: var(--tinta-suave); margin-top: .35rem; }
+.por-confirmar { margin: -.4rem 0 1.15rem; font-size: .88rem; }
+.por-confirmar strong { color: var(--toga); }
 .error { font-size: .88rem; color: var(--error); margin-top: .35rem; display: none; }
 .error.visible { display: block; }
 

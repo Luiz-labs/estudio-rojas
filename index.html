@@ -38,6 +38,7 @@
     "email": "dra.gloriamariarojas@gmail.com",
     "areaServed": { "@type": "Country", "name": "Perú" },
     "availableLanguage": "es",
+    "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" }],
     "knowsAbout": ["Pensión de alimentos", "Tenencia y régimen de visitas", "Patria potestad", "Sucesión intestada y testamentos", "Derecho civil", "Trámites registrales SUNARP", "INDECOPI", "Constitución de empresas", "Defensa penal"]
   }
   </script>
@@ -278,6 +279,7 @@
           <ul class="contacto-directo">
             <li><span>WhatsApp y llamadas</span><a href="tel:+51906363300">906 363 300</a></li>
             <li><span>Correo</span><a href="mailto:dra.gloriamariarojas@gmail.com">dra.gloriamariarojas@gmail.com</a></li>
+            <li><span>Horario de atención</span><strong>Lunes a viernes, 9:00 a. m. a 6:00 p. m.</strong></li>
           </ul>
         </div>
 
@@ -323,18 +325,36 @@
 
           <div class="fila">
             <div class="campo">
-              <label for="fecha">Fecha preferida <span class="opcional">(opcional)</span></label>
+              <label for="fecha">Fecha <span class="opcional">(opcional)</span></label>
               <input id="fecha" name="fecha" type="date">
             </div>
             <div class="campo">
-              <label for="horario">Horario preferido <span class="opcional">(opcional)</span></label>
-              <select id="horario" name="horario">
-                <option value="">Cualquier horario</option>
-                <option value="Mañana">Mañana</option>
-                <option value="Tarde">Tarde</option>
+              <label for="hora">Hora <span class="opcional">(opcional)</span></label>
+              <select id="hora" name="hora">
+                <option value="">Elige una hora</option>
+                <option value="9:00 a. m.">9:00 a. m.</option>
+                <option value="9:30 a. m.">9:30 a. m.</option>
+                <option value="10:00 a. m.">10:00 a. m.</option>
+                <option value="10:30 a. m.">10:30 a. m.</option>
+                <option value="11:00 a. m.">11:00 a. m.</option>
+                <option value="11:30 a. m.">11:30 a. m.</option>
+                <option value="12:00 p. m.">12:00 p. m.</option>
+                <option value="12:30 p. m.">12:30 p. m.</option>
+                <option value="1:00 p. m.">1:00 p. m.</option>
+                <option value="1:30 p. m.">1:30 p. m.</option>
+                <option value="2:00 p. m.">2:00 p. m.</option>
+                <option value="2:30 p. m.">2:30 p. m.</option>
+                <option value="3:00 p. m.">3:00 p. m.</option>
+                <option value="3:30 p. m.">3:30 p. m.</option>
+                <option value="4:00 p. m.">4:00 p. m.</option>
+                <option value="4:30 p. m.">4:30 p. m.</option>
+                <option value="5:00 p. m.">5:00 p. m.</option>
+                <option value="5:30 p. m.">5:30 p. m.</option>
               </select>
             </div>
           </div>
+          <p class="error" id="error-fecha">Atendemos de lunes a viernes. Elige otro día.</p>
+          <p class="ayuda por-confirmar">Atendemos de lunes a viernes, de 9:00 a. m. a 6:00 p. m. La fecha y la hora quedan <strong>por confirmar</strong>: el estudio te responderá para aprobarlas o proponerte otra según su agenda.</p>
 
           <div class="campo">
             <label for="consulta">¿Qué está pasando?</label>
@@ -398,7 +418,7 @@
       if (e.target.closest("a")) { menu.classList.remove("abierto"); botonMenu.setAttribute("aria-expanded", "false"); }
     });
 
-    // La fecha preferida no puede ser pasada
+    // La fecha no puede ser pasada
     var fecha = document.getElementById("fecha");
     var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
     fecha.min = hoy.toISOString().slice(0, 10);
@@ -438,6 +458,7 @@
         marcar("celular", /^9\d{8}$/.test(v.celular)),
         marcar("tema", v.tema !== ""),
         marcar("consulta", v.consulta.length >= 10),
+        marcar("fecha", !form.fecha.value || [0, 6].indexOf(new Date(form.fecha.value + "T12:00:00").getDay()) === -1),
         marcar("acepto", document.getElementById("acepto").checked)
       ];
       if (ok.indexOf(false) !== -1) {
@@ -458,9 +479,9 @@
       ];
       if (form.fecha.value) {
         var p = form.fecha.value.split("-");
-        lineas.push("Fecha preferida: " + p[2] + "/" + p[1] + "/" + p[0]);
+        lineas.push("Fecha seleccionada: " + p[2] + "/" + p[1] + "/" + p[0] + " (por confirmar)");
       }
-      if (form.horario.value) lineas.push("Horario preferido: " + form.horario.value);
+      if (form.hora.value) lineas.push("Horario seleccionado: " + form.hora.value + " (por confirmar)");
       lineas.push("", "Consulta:", v.consulta);
       return lineas.join("\n");
     }
@@ -478,9 +499,9 @@
     });
 
     // Quitar el error apenas el usuario corrige
-    ["nombre", "celular", "tema", "consulta", "acepto"].forEach(function (id) {
+    ["nombre", "celular", "tema", "consulta", "acepto", "fecha"].forEach(function (id) {
       var el = document.getElementById(id);
-      el.addEventListener(id === "acepto" || id === "tema" ? "change" : "input", function () {
+      el.addEventListener(id === "acepto" || id === "tema" || id === "fecha" ? "change" : "input", function () {
         if (el.getAttribute("aria-invalid") === "true") {
           var err = document.getElementById("error-" + id);
           el.setAttribute("aria-invalid", "false");
