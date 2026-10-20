@@ -231,6 +231,25 @@ p { margin: 0 0 1em; }
 .preguntas details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
 .preguntas details p { color: var(--tinta-suave); padding-bottom: 1.2rem; margin: 0; max-width: 42rem; }
 
+/* ---------- Presentación del estudio ---------- */
+.presentacion-grid { display: grid; grid-template-columns: 260px 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.presentacion-portada { display: block; transform: rotate(-2deg); box-shadow: 0 2px 4px rgba(13,24,41,.1), 0 22px 44px rgba(13,24,41,.22); transition: transform .25s; }
+.presentacion-portada:hover { transform: rotate(0deg) translateY(-4px); }
+.presentacion-portada img { width: 100%; height: auto; }
+.presentacion-texto { max-width: 34rem; }
+.presentacion-texto p { color: var(--tinta-suave); font-size: 1.1rem; margin: 1rem 0 1.8rem; }
+.presentacion-acciones { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.2rem; }
+.boton-borde { border-color: var(--toga); color: var(--toga); background: transparent; }
+.boton-borde:hover { background: var(--toga); color: #fff; }
+.compartir { display: inline-flex; align-items: center; gap: .5rem; color: var(--whatsapp); font-weight: 600; text-decoration: none; }
+.compartir svg { width: 20px; height: 20px; }
+.compartir:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 700px) {
+  .presentacion-grid { grid-template-columns: 1fr; }
+  .presentacion-portada { width: 190px; margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { .presentacion-portada, .presentacion-portada:hover { transform: none; transition: none; } }
+
 /* ---------- Contacto ---------- */
 .contacto-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
 .contacto-info p { color: var(--tinta-suave); }
