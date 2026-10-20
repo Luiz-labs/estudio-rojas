@@ -1,946 +1,474 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-PE">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROJAS & ABOGADOS ASOCIADOS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rojas &amp; Abogados Asociados | Abogados de familia, civil y penal con atención virtual</title>
+  <meta name="description" content="Estudio jurídico con atención virtual. Pensión de alimentos, tenencia, patria potestad, herencias, derecho civil, SUNARP, INDECOPI, constitución de empresas y defensa penal. Consulta por WhatsApp.">
+  <link rel="canonical" href="https://estudio-rojas.pages.dev/">
+  <meta name="theme-color" content="#0D1829">
 
-<link rel="stylesheet" href="estilos.css">
+  <!-- Vista previa al compartir en WhatsApp / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+  <meta property="og:site_name" content="Rojas &amp; Abogados Asociados">
+  <meta property="og:title" content="Rojas &amp; Abogados Asociados">
+  <meta property="og:description" content="Asesoría legal en familia, patrimonio, empresa y defensa penal. Atención 100% virtual por WhatsApp y videollamada.">
+  <meta property="og:url" content="https://estudio-rojas.pages.dev/">
+  <meta property="og:image" content="https://estudio-rojas.pages.dev/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #000000;
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="preload" href="fonts/spectral-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="estilos.css">
 
-/* Paleta institucional y de conversión */
-  --color-primario: #003366;
-  --color-secundario: #005baa;
-  --color-acento: #28a745;
-  --color-alerta: #ff8c42;
-  --color-fondo-claro: #f2f4f8;
-  --color-texto-principal: #333333;
-  --color-texto-secundario: #666666;
-
-    }
-
-    .dark-mode {
-      --bg: #121212;
-      --text: #f0f0f0;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg);
-      color: var(--text);
-    }
-
-    .topbar {
-       background-color: #002244;
-       color: white;
-       font-size: 0.9rem;
-       padding: 0.5rem 1rem;
-       display: flex;
-       justify-content: flex-start;
-       align-items: center;
-    }
-
-
-    header {
-      background-color: var(--color-primario);
-      color: white;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-    }
-
-    .logo {
-      display: flex;
-      justify-content: center; /* centra horizontalmente */
-      align-items: center;
-      height: 50px;      
-      overflow: hidden;
-    }
-
-    .logo img {
-      height: 80px; /* ← ajusta este valor según lo que necesites */
-      width: auto;
-      object-fit: contain;
-    }
-
-    .logo span {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    nav ul.menu {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul.menu li a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1rem;
-      color: white;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    section {
-      padding: 1.5rem;
-    }
-
-
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 30px;
-  background-color: var(--color-fondo-claro);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  color: var(--color-texto-principal);
-  margin-bottom: 10px;
-}
-
-
-label > span {
-  margin-bottom: 6px;
-  font-weight: bold; /* ← esto aplica la negrita */
-}
-
-
-input,
-select,
-textarea {
-  padding: 12px 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #005baa;
-  outline: none;
-}
-
-button {
-  padding: 14px;
-  background-color: var(--color-secundario);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: var(--color-secundario);
-}
-
-
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      z-index: 1000;
-    }
-
-    .whatsapp-float img {
-      width: 100%;
-    }
-
-    .seccion.hidden {
-      display: none;
-    }
-
-    .seccion.visible {
-      display: block;
-    }
-
-
-/* animación de entrada del texto de presentación */
-.intro {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 1s ease-out forwards;
-}
-
-.intro .columna {
-  flex: 1 1 45%;
-}
-
-@keyframes fadeSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Rojas & Abogados Asociados",
+    "url": "https://estudio-rojas.pages.dev/",
+    "logo": "https://estudio-rojas.pages.dev/img/logo.png",
+    "image": "https://estudio-rojas.pages.dev/img/og.jpg",
+    "telephone": "+51906363300",
+    "email": "dra.gloriamariarojas@gmail.com",
+    "areaServed": { "@type": "Country", "name": "Perú" },
+    "availableLanguage": "es",
+    "knowsAbout": ["Pensión de alimentos", "Tenencia y régimen de visitas", "Patria potestad", "Sucesión intestada y testamentos", "Derecho civil", "Trámites registrales SUNARP", "INDECOPI", "Constitución de empresas", "Defensa penal"]
   }
-}
-
-
-
-@media (max-width: 768px) {
-  .intro {
-    flex-direction: column;
-  }
-}
-
-
-.boton-contacto {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.boton-contacto button {
-  background-color: var(--color-primario);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0,2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.boton-contacto button:hover {
-  background-color: #005599;
-  transform: scale(1.05);
-}
-
-
-footer {
-  background-color: var(--color-primario);
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-
-.imagen-principal,
-.imagen-servicios {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  object-position: center 20%; /* ← esto baja el encuadre ligeramente no es imgan de cabecera */
-  display: block;
-  margin-bottom: 20px;
-}
-.imagen-contacto {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  display: block;
-}
-
-.imagen-lateral,
-.imagen-secundaria {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  object-fit: contain;
-  margin: 20px 0;
-}
-
-.intro.reorganizada {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: space-between;
-}
-
-.columna-izquierda,
-.columna-derecha {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.titulo-central {
-  text-align: center;
-  font-size: 2.6rem;
-  font-weight: bold;
-  margin: 40px auto;
-  color: #222;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-
-.bloque-servicios-unico {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 40px;
-  margin: 60px auto;         /* Centra el bloque verticalmente */
-  padding: 0 10%;            /* ← Agrega espacio a los lados */
-  max-width: 1100px;         /* ← Limita el ancho total */
-  align-items: flex-start;
-}
-
-.columna-servicios-izquierda {
-  flex: 0 1 38%;
-}
-
-.columna-servicios-derecha {
-  flex: 1 1 62%;
-}
-
-.bloque-servicios-unico .columna-servicios-izquierda,
-.bloque-servicios-unico .columna-servicios-derecha {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
-}
-
-.imagen-servicios-unica {
-  width: 100%;
-  max-height: 400px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-  object-position: center 20%; /* ← sube el encuadre para mostrar el rostro */
-}
-
-
-@media (max-width: 768px) {
-  .bloque-servicios-unico {
-    flex-wrap: wrap;
-  }
-}
-
-/* Modo oscuro general */
-body.dark-mode {
-  background-color: #121212;
-  color: #eee;
-}
-
-/* Título centrado en INICIO */
-body.dark-mode .titulo-central {
-  color: #eee;
-}
-
-/* Bloque de SERVICIOS */
-body.dark-mode .bloque-servicios-unico {
-  background-color: #1a1a1a;
-}
-
-body.dark-mode .columna-servicios-derecha p {
-  color: #ccc;
-}
-
-/* Títulos secundarios */
-body.dark-mode h2 {
-  color: #eee;
-}
-
-body.dark-mode .columna-servicios-derecha h3 {
-  color: #eee;
-}
-
-body.dark-mode .columna-servicios-derecha button {
-  background-color: #005baa;
-  color: white;
-  border: none;
-}
-
-
-.servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ← 3 columnas automáticas */
-  gap: 2rem; /* ← espacio entre tarjetas */
-  padding: 2rem;
-}
-
-.servicio-card {
-  background-color: var(--color-fondo-claro);
-  border-radius: 8px;
-  text-align: center;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.servicio-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-
-.servicio-card img {
-  width: 100%;
-  max-width: 300px; /* o 400px si prefieres más grande */
-  height: auto;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-}
-
-.servicio-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.servicio-card p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.servicio-card button {
-  background-color: var(--color-primario);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.select-resaltado {
-  border: 2px solid #005baa;
-  box-shadow: 0 0 10px rgba(0, 91, 170, 0.6);
-  background-color: #eef6ff;
-  transition: all 0.3s ease;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  overflow-y: auto; /* ← scroll vertical si el modal es alto */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 1000;
-  padding: 2rem 0;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-contenido {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  font-family: 'Segoe UI', sans-serif;
-  margin: 2rem 0; /* espacio vertical */
-}
-
-.cerrar-modal {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-}
-
-@media (max-width: 600px) {
-  .modal-contenido {
-    padding: 1rem;
-  }
-
-  .cerrar-modal {
-    font-size: 2rem;
-  }
-}
-
-
-body.dark-mode #modal-contacto {
-  background: rgba(0, 0, 0, 0.85);
-}
-
-body.dark-mode .modal-contenido {
-  background-color: #1e1e1e;
-  color: #eee;
-  border: 1px solid #333;
-}
-
-body.dark-mode .cerrar-modal {
-  color: #eee;
-}
-
-body.dark-mode select,
-body.dark-mode input,
-body.dark-mode textarea {
-  background-color: #f9f9f9;
-  color: #000;
-  border: 1px solid #ccc;
-}
-
-body.dark-mode button {
-  background-color: #005baa;
-  color: white;
-}
-
-body.dark-mode .servicio-card h3,
-body.dark-mode .servicio-card p,
-body.dark-mode .servicio-card button {
-  color: #000 !important;
-}
-
-.texto-animado {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: aparecer 0.8s ease forwards;
-}
-
-@keyframes aparecer {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.fade-slide-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeSlideUp 1s ease-out forwards;
-}
-
-
-  </style>
+  </script>
 </head>
 
 <body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
 
+  <!-- Íconos reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24s8.24 3.7 8.24 8.24c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 7.5A1.5 1.5 0 0 1 4.5 6h10A1.5 1.5 0 0 1 16 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 16.5v-9ZM16 10.5l4.2-2.6a.5.5 0 0 1 .8.4v7.4a.5.5 0 0 1-.8.4L16 13.5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M14 3H7a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V7.5L14 3Zm0 0v4.5h4.5M9 12.5h6M9 16h6"/></symbol>
+    <symbol id="i-candado" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6.5 10.5h11A1.5 1.5 0 0 1 19 12v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19.5V12a1.5 1.5 0 0 1 1.5-1.5Zm2-0V7.5a3.5 3.5 0 0 1 7 0v3M12 14.5v2.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
 
-<div id="modal-contacto" class="modal hidden">
-  <div class="modal-contenido">
-    <button class="cerrar-modal" onclick="cerrarModal()">×</button>
-    <h2>Contáctanos</h2>
-    <form id="consulta-form">
-      <label>
-        <span>Agende fecha y hora:</span>
-        <input type="datetime-local" name="fechaHora" required />
-      </label>
-
-      <label>
-        <span>Elija la especialidad:</span>
-        <select id="especialidad" name="especialidad" required>
-          <option value="alimentos">Alimentos</option>
-          <option value="tenencia">Demanda de tenencia</option>
-          <option value="civil">Derecho Civil</option>
-          <option value="penal">Derecho Penal</option>
-          <option value="sunarp">SUNARP</option>
-          <option value="indecopi">INDECOPI</option>
-          <option value="empresas">Constitución de empresas</option>
-          <option value="patria">Patria Potestad</option>
-          <option value="sucesion">Sucesión Testamentaria</option>
-        </select>
-      </label>
-
-      <label>
-        <span>Bríndenos su celular:</span>
-        <input type="tel" name="telefono" required />
-      </label>
-
-      <label>
-        <span>Detalle su consulta:</span>
-        <textarea name="consulta" rows="5" required></textarea>
-      </label>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-</div>
-
-
-  <!-- Barra superior institucional -->
-  <div class="topbar">
-    <p>📞 <a href="tel:+51906363300" style="color: white; text-decoration: none;">+51 906 363 300</a> |
-    ✉️ <a href="mailto:dra.gloriamariarojas@gmail.com" style="color: white; text-decoration: none;">dra.gloriamariarojas@gmail.com</a>
-   </p>
-  </div>
-
-  <!-- Encabezado principal -->
-  <header>
-    <div class="nav-container">
-      <div class="logo">
-        <img src="images/logo-estudio.png" alt="Logo del estudio" class="logo" />
-        <span>ROJAS & ABOGADOS ASOCIADOS</span>
-      </div>
-      <nav>
-        <ul class="menu">
-          <li><a data-section="inicio">INICIO</a></li>
-          <li><a data-section="servicios">SERVICIOS</a></li>
-          <li><a data-section="contacto">CONTÁCTANOS</a></li>
+  <!-- ===== Cabecera ===== -->
+  <header class="cabecera">
+    <div class="contenedor">
+      <a class="marca" href="#inicio" aria-label="Rojas & Abogados Asociados, ir al inicio">
+        <img src="img/logo.webp" alt="" width="30" height="44">
+        <span>Rojas &amp; Abogados Asociados<small>Estudio jurídico</small></span>
+      </a>
+      <button class="abrir-menu" aria-expanded="false" aria-controls="menu">
+        <svg width="20" height="20"><use href="#i-menu"/></svg> Menú
+      </button>
+      <nav aria-label="Principal">
+        <ul class="menu" id="menu">
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li><a class="boton boton-whatsapp" href="https://wa.me/51906363300?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20legal." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escríbenos</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle">🌙 OSCURO</button>
     </div>
   </header>
 
+  <main id="contenido">
 
-<section id="inicio" class="seccion visible">
-
-  <!-- Imagen fija principal -->
-  <img src="images/image_1.png" alt="Imagen institucional" class="imagen-principal" />
-
-<!-- Título institucional centrado -->
-<h1 class="titulo-central">ROJAS & ABOGADOS ASOCIADOS</h1>
-  <div class="intro reorganizada">
-    <div class="columna-izquierda">
-      <p>Somos un Estudio Jurídico con una profunda vocación por la defensa y la justicia, cimentado en los pilares de la ética, el profesionalismo riguroso y una innegable cercanía con nuestros clientes.</p>
-      <p>En un entorno legal complejo, nuestra misión primordial es ser su socio estratégico y su defensa más sólida.</p> 
-      <p>Ofrecemos asesoría legal especializada e integral a través de las diversas ramas del derecho, garantizando un servicio de la más alta calidad técnica y humana.</p>
-
-      <!-- Imagen 4 debajo del texto -->
-      <img src="images/image_4.png" alt="Imagen de respaldo legal" class="imagen-secundaria" />
-    </div>
-
-    <div class="columna-derecha">
-      <!-- Imagen 3 reemplazando la segunda columna -->
-      <img src="images/image_3.png" alt="Imagen de confianza y experiencia" class="imagen-lateral" />
-
-      <!-- Texto original de la segunda columna debajo de la imagen -->
-      <div class="texto-derecha">
-        <p>Nos destacamos por nuestra habilidad para ofrecer soluciones jurídicas efectivas y estratégicas, tanto en la crucial fase preventiva (minimizando riesgos y asegurando la legalidad) como en la contenciosa (defendiendo sus intereses en instancias judiciales). Comprendemos que cada desafío es único, por lo que nuestra metodología se basa en la personalización absoluta, adaptando cada estrategia a las necesidades particulares y los objetivos específicos de cada cliente.</p>
-
-        <p>Nuestro trabajo está enfocado a brindarte la mejor asesoría legal en tu caso. Nos esforzamos por darte la confianza y la seguridad a la hora de tomar decisiones importantes.</p>
-
-        <p>Contáctanos para resolver todas tus dudas.</p>
-
+    <!-- ===== Portada ===== -->
+    <section class="portada" id="inicio">
+      <div class="contenedor">
+        <div class="portada-texto">
+          <h1>Te acompañamos en temas de familia, herencias y patrimonio, desde donde estés.</h1>
+          <p>Somos un estudio jurídico de atención virtual. Revisamos tu caso por WhatsApp o videollamada y te explicamos tus opciones con claridad.</p>
+          <div class="acciones">
+            <a class="boton boton-whatsapp" href="https://wa.me/51906363300?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20legal." target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+            <a class="boton boton-claro" href="#contacto">Agendar una consulta</a>
+          </div>
+        </div>
+        <div class="portada-figura" aria-hidden="true">
+          <img src="img/logo.webp" alt="" width="264" height="423">
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Botón de contacto -->
-  <div class="boton-contacto">
-    <button onclick="abrirContacto()">📩 CONTÁCTANOS</button>
-  </div>
-
-</section>
-
-
-
-<section id="servicios" class="seccion hidden">
-
-  <!-- Imagen fija institucional -->
-  <img src="images/image_2.png" alt="Servicios legales" class="imagen-servicios-unica" />
-
-  <h2>Especialidades</h2>
-
-<div class="bloque-servicios-unico">
-  <div class="columna-servicios-izquierda">
-    <img src="images/image_5.png" alt="Imagen institucional de servicios" class="imagen-servicios" />
-  </div>
-
-  <div class="columna-servicios-derecha">
-    <p>En Rojas & Abogados Asociados, entendemos que cada especialidad jurídica requiere un enfoque preciso y personalizado. Nuestro equipo está preparado para brindarte asesoría experta en cada área del derecho, con el compromiso de proteger tus intereses y garantizar soluciones efectivas.</p>
-    <p>Explora nuestras especialidades y agenda tu consulta con la confianza de estar respaldado por profesionales que valoran tu tiempo, tu caso y tu tranquilidad.</p>
-  </div>
-</div>
-
-
-  <div class="servicios-grid">
-    <div class="servicio-card">
-      <img src="images/icon_alimentos.jpg" alt="Alimentos" />
-      <h3 class="fade-slide-up">Alimentos</h3>
-      <p class="fade-slide-up">Brindamos asesoría en pensión alimenticia para menores, adultos mayores y personas con discapacidad. Te ayudamos a establecer acuerdos justos y sostenibles, ya sea por vía judicial o conciliación. Protegemos el bienestar de quienes más lo necesitan.</p>
-      <button onclick="abrirFormulario('alimentos')">Más información</button>
+    <!-- ===== Cómo atendemos ===== -->
+    <div class="franja">
+      <ul>
+        <li><svg><use href="#i-video"/></svg><div><strong>Atención virtual</strong>Consultas por WhatsApp, llamada o videollamada.</div></li>
+        <li><svg><use href="#i-doc"/></svg><div><strong>Sin traslados</strong>Compartes tus documentos en forma digital.</div></li>
+        <li><svg><use href="#i-candado"/></svg><div><strong>Confidencialidad</strong>Tu caso está protegido por el secreto profesional.</div></li>
+      </ul>
     </div>
 
-    <div class="servicio-card">
-      <img src="images/icon_tenencia.jpg" alt="Demanda de Tenencia" />
-      <h3 class="fade-slide-up">Demanda de Tenencia</h3>
-      <p class="fade-slide-up">Acompañamos procesos de tenencia y régimen de visitas con sensibilidad y firmeza. Buscamos soluciones que prioricen el interés superior del menor y promuevan vínculos familiares saludables. Tu tranquilidad y la de tus hijos es nuestra prioridad.</p>
-      <button onclick="abrirFormulario('tenencia')">Más información</button>
+    <!-- ===== Especialidades ===== -->
+    <section class="seccion" id="especialidades">
+      <div class="contenedor">
+        <div class="encabezado">
+          <h2>Especialidades</h2>
+          <p>Elige el tema que se parece a tu situación. Si no estás seguro, escríbenos igual y te orientamos.</p>
+        </div>
+
+        <article class="area">
+          <div class="area-intro">
+            <img src="img/familia.webp" alt="Familia conversando con una abogada en la sala de su casa" width="900" height="675" loading="lazy">
+            <h3>Familia</h3>
+            <p>Procesos delicados que tratamos con firmeza y con cuidado por los hijos.</p>
+          </div>
+          <ul class="servicios">
+            <li>
+              <h4>Pensión de alimentos</h4>
+              <p>Si el otro padre no aporta o el monto ya no alcanza, te ayudamos a pedir, aumentar o cobrar la pensión, por conciliación o en el juzgado. También para adultos mayores y personas con discapacidad.</p>
+              <button class="boton-texto" data-tema="alimentos">Consultar sobre alimentos</button>
+            </li>
+            <li>
+              <h4>Tenencia y régimen de visitas</h4>
+              <p>Cuando los padres no se ponen de acuerdo sobre con quién viven los hijos o cómo se ven, buscamos la solución que mejor los proteja.</p>
+              <button class="boton-texto" data-tema="tenencia">Consultar sobre tenencia</button>
+            </li>
+            <li>
+              <h4>Patria potestad</h4>
+              <p>Te asesoramos para ejercer, suspender o recuperar la patria potestad, cuidando siempre el bienestar de los hijos.</p>
+              <button class="boton-texto" data-tema="patria">Consultar sobre patria potestad</button>
+            </li>
+          </ul>
+        </article>
+
+        <article class="area">
+          <div class="area-intro">
+            <img src="img/patrimonio.webp" alt="Firma de documentos junto a la maqueta de una casa" width="900" height="675" loading="lazy">
+            <h3>Patrimonio</h3>
+            <p>Herencias, propiedades y contratos en orden, para evitar problemas después.</p>
+          </div>
+          <ul class="servicios">
+            <li>
+              <h4>Herencias y testamentos</h4>
+              <p>Sucesión intestada, testamentos y reparto de bienes, para que la familia resuelva sin pleitos innecesarios.</p>
+              <button class="boton-texto" data-tema="sucesion">Consultar sobre herencias</button>
+            </li>
+            <li>
+              <h4>Derecho civil</h4>
+              <p>Contratos, deudas, propiedad, daños y obligaciones. Protegemos tu patrimonio con una estrategia clara.</p>
+              <button class="boton-texto" data-tema="civil">Consultar sobre derecho civil</button>
+            </li>
+            <li>
+              <h4>Trámites en SUNARP</h4>
+              <p>Inscripciones, rectificaciones e independizaciones. Revisamos tus documentos antes de presentarlos para evitar observaciones.</p>
+              <button class="boton-texto" data-tema="sunarp">Consultar sobre SUNARP</button>
+            </li>
+          </ul>
+        </article>
+
+        <article class="area">
+          <div class="area-intro">
+            <img src="img/empresa.webp" alt="Abogado revisando un documento con su cliente" width="900" height="675" loading="lazy">
+            <h3>Empresa y consumidor</h3>
+            <p>Para emprender en regla y defender tus derechos frente a empresas.</p>
+          </div>
+          <ul class="servicios">
+            <li>
+              <h4>Constitución de empresas</h4>
+              <p>Desde el estatuto hasta la inscripción, para que tu negocio empiece formal y con bases sólidas.</p>
+              <button class="boton-texto" data-tema="empresas">Consultar sobre empresas</button>
+            </li>
+            <li>
+              <h4>INDECOPI</h4>
+              <p>Reclamos de consumo, registro de marcas y patentes, y defensa en procedimientos ante INDECOPI.</p>
+              <button class="boton-texto" data-tema="indecopi">Consultar sobre INDECOPI</button>
+            </li>
+          </ul>
+        </article>
+
+        <article class="area">
+          <div class="area-intro">
+            <img src="img/penal.webp" alt="Abogado redactando un escrito junto a una balanza de la justicia" width="900" height="675" loading="lazy">
+            <h3>Penal</h3>
+            <p>Defensa con rigor y ética desde la primera citación.</p>
+          </div>
+          <ul class="servicios">
+            <li>
+              <h4>Defensa penal</h4>
+              <p>Te defendemos ante denuncias, investigaciones fiscales y juicios. Actuar a tiempo marca la diferencia, así que escríbenos apenas recibas una notificación.</p>
+              <button class="boton-texto" data-tema="penal">Consultar sobre defensa penal</button>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Cómo trabajamos ===== -->
+    <section class="seccion seccion-alterna" id="como-trabajamos">
+      <div class="contenedor">
+        <div class="encabezado">
+          <h2>Cómo trabajamos</h2>
+          <p>Todo el proceso es virtual, para que no tengas que trasladarte.</p>
+        </div>
+        <ol class="pasos">
+          <li>
+            <h3>Cuéntanos tu caso</h3>
+            <p>Escríbenos por WhatsApp o usa el formulario. Basta con una idea general.</p>
+          </li>
+          <li>
+            <h3>Revisamos tu situación</h3>
+            <p>Coordinamos una llamada o videollamada para entender los detalles y los documentos que tienes.</p>
+          </li>
+          <li>
+            <h3>Te explicamos tus opciones</h3>
+            <p>Qué se puede hacer, cuánto puede tomar y cuál es el costo, antes de empezar.</p>
+          </li>
+          <li>
+            <h3>Te acompañamos</h3>
+            <p>Te mantenemos al tanto de cada avance de tu caso.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Preguntas ===== -->
+    <section class="seccion" id="preguntas">
+      <div class="contenedor">
+        <div class="encabezado">
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="preguntas">
+          <details>
+            <summary>¿Cómo funciona la atención virtual?</summary>
+            <p>Las consultas se hacen por WhatsApp, llamada o videollamada. Los documentos se comparten en forma digital y, si tu caso requiere una reunión presencial, la coordinamos con anticipación.</p>
+          </details>
+          <details>
+            <summary>¿Qué debo tener a la mano para la primera consulta?</summary>
+            <p>Un resumen de lo que pasó y los documentos que tengas: DNI, partidas, contratos, resoluciones o notificaciones. Si no tienes todo, igual podemos empezar.</p>
+          </details>
+          <details>
+            <summary>¿Lo que cuento es confidencial?</summary>
+            <p>Sí. Todo lo que compartas está protegido por el secreto profesional del abogado y solo se usa para atender tu caso.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contacto ===== -->
+    <section class="seccion seccion-alterna" id="contacto">
+      <div class="contenedor contacto-grid">
+        <div class="contacto-info">
+          <h2>Cuéntanos tu caso</h2>
+          <p style="margin-top:1rem">Completa el formulario y se abrirá WhatsApp con tu mensaje listo para enviar. Te responderemos para coordinar la consulta.</p>
+          <ul class="contacto-directo">
+            <li><span>WhatsApp y llamadas</span><a href="tel:+51906363300">906 363 300</a></li>
+            <li><span>Correo</span><a href="mailto:dra.gloriamariarojas@gmail.com">dra.gloriamariarojas@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <form class="formulario" id="form-consulta" novalidate>
+          <div class="fila">
+            <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80">
+              <p class="error" id="error-nombre">Escribe tu nombre.</p>
+            </div>
+            <div class="campo">
+              <label for="celular">Celular</label>
+              <input id="celular" name="celular" type="tel" inputmode="numeric" autocomplete="tel-national" required placeholder="9XX XXX XXX" maxlength="16">
+              <p class="error" id="error-celular">Escribe un celular de 9 dígitos que empiece con 9.</p>
+            </div>
+          </div>
+
+          <div class="campo" id="campo-tema">
+            <label for="tema">Tema de tu consulta</label>
+            <select id="tema" name="tema" required>
+              <option value="">Elige un tema</option>
+              <optgroup label="Familia">
+                <option value="alimentos">Pensión de alimentos</option>
+                <option value="tenencia">Tenencia y régimen de visitas</option>
+                <option value="patria">Patria potestad</option>
+              </optgroup>
+              <optgroup label="Patrimonio">
+                <option value="sucesion">Herencias y testamentos</option>
+                <option value="civil">Derecho civil</option>
+                <option value="sunarp">Trámites en SUNARP</option>
+              </optgroup>
+              <optgroup label="Empresa y consumidor">
+                <option value="empresas">Constitución de empresas</option>
+                <option value="indecopi">INDECOPI</option>
+              </optgroup>
+              <optgroup label="Penal">
+                <option value="penal">Defensa penal</option>
+              </optgroup>
+              <option value="otro">Otro / no estoy seguro</option>
+            </select>
+            <p class="error" id="error-tema">Elige un tema. Si no estás seguro, marca “Otro / no estoy seguro”.</p>
+          </div>
+
+          <div class="fila">
+            <div class="campo">
+              <label for="fecha">Fecha preferida <span class="opcional">(opcional)</span></label>
+              <input id="fecha" name="fecha" type="date">
+            </div>
+            <div class="campo">
+              <label for="horario">Horario preferido <span class="opcional">(opcional)</span></label>
+              <select id="horario" name="horario">
+                <option value="">Cualquier horario</option>
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="consulta">¿Qué está pasando?</label>
+            <textarea id="consulta" name="consulta" required maxlength="1200" placeholder="Cuéntanos brevemente tu situación. No incluyas números de cuenta ni contraseñas."></textarea>
+            <p class="error" id="error-consulta">Cuéntanos brevemente tu caso.</p>
+          </div>
+
+          <label class="consentimiento">
+            <input type="checkbox" id="acepto" required>
+            <span>Acepto que mis datos se usen para responder mi consulta, según la <a href="privacidad.html">política de privacidad</a>.</span>
+          </label>
+          <p class="error" id="error-acepto">Necesitamos tu autorización para responderte.</p>
+
+          <div class="envio">
+            <button type="submit" class="boton boton-whatsapp"><svg><use href="#i-wa"/></svg>Enviar por WhatsApp</button>
+            <button type="button" class="boton-texto" id="enviar-correo">Prefiero enviarlo por correo</button>
+          </div>
+          <p class="nota-envio">Esta web no guarda tus datos: tu mensaje se envía directamente por WhatsApp o correo.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Pie ===== -->
+  <footer class="pie">
+    <div class="contenedor">
+      <a class="marca" href="#inicio">
+        <img src="img/logo.webp" alt="" width="30" height="44">
+        <span>Rojas &amp; Abogados Asociados</span>
+      </a>
+      <ul>
+        <li><a href="tel:+51906363300">906 363 300</a></li>
+        <li><a href="mailto:dra.gloriamariarojas@gmail.com">dra.gloriamariarojas@gmail.com</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+      </ul>
+      <p class="pie-legal">© <span id="anio">2026</span> Rojas &amp; Abogados Asociados. La información de esta web es general y no reemplaza una asesoría sobre tu caso.</p>
     </div>
+  </footer>
 
-    <div class="servicio-card">
-      <img src="images/icon_civil.jpg" alt="Derecho Civil" />
-      <h3 class="fade-slide-up">Derecho Civil</h3>
-      <p class="fade-slide-up">Resolvemos conflictos relacionados con contratos, propiedad, herencias, daños y obligaciones civiles. Protegemos tu patrimonio con estrategias legales claras y efectivas. Tu seguridad jurídica es nuestra misión.</p>
-      <button onclick="abrirFormulario('civil')">Más información</button>
-    </div>
-
-    <div class="servicio-card">
-      <img src="images/icon_penal.jpg" alt="Derecho Penal" />
-      <h3 class="fade-slide-up">Derecho Penal</h3>
-      <p class="fade-slide-up">Defendemos tus derechos ante acusaciones penales, denuncias y procesos judiciales. Asumimos cada caso con rigor, ética y compromiso. Tu defensa es nuestra prioridad, desde la investigación hasta el juicio.</p>
-      <button onclick="abrirFormulario('penal')">Más información</button>
-    </div>
-
-    <div class="servicio-card">
-      <img src="images/image_4.png" alt="SUNARP" />
-      <h3 class="fade-slide-up">SUNARP</h3>
-      <p class="fade-slide-up">Te asesoramos en trámites registrales ante SUNARP: inscripción de propiedades, rectificaciones, independizaciones y más. Garantizamos que tus actos jurídicos tengan plena validez y respaldo legal. Evita observaciones y asegura tu inversión.</p>
-      <button onclick="abrirFormulario('sunarp')">Más información</button>
-    </div>
-
-    <div class="servicio-card">
-      <img src="images/icon_indecopi.jpg" alt="INDECOPI" />
-      <h3 class="fade-slide-up">INDECOPI</h3>
-      <p class="fade-slide-up">Protegemos tus derechos como consumidor y tu propiedad intelectual. Te representamos ante INDECOPI en casos de reclamos, marcas, patentes y defensa de la libre competencia. Tu innovación y tu voz merecen ser escuchadas.</p>
-      <button onclick="abrirFormulario('indecopi')">Más información</button>
-    </div>
-
-    <div class="servicio-card">
-      <img src="images/icon_empresas.jpg" alt="Constitución de Empresas" />
-      <h3 class="fade-slide-up">Constitución de Empresas</h3>
-      <p class="fade-slide-up">Te guiamos en la creación legal de tu empresa, desde el estatuto hasta la inscripción formal. Aseguramos que tu emprendimiento cumpla con todos los requisitos y tenga bases sólidas. Comienza con respaldo jurídico desde el primer día.</p>
-      <button onclick="abrirFormulario('empresas')">Más información</button>
-    </div>
-
-    <div class="servicio-card">
-      <img src="images/icon_patria.jpg" alt="Patria Potestad" />
-      <h3 class="fade-slide-up">Patria Potestad</h3>
-      <p class="fade-slide-up">Asesoramos en procesos de suspensión, recuperación o ejercicio de la patria potestad. Defendemos el derecho de los padres y el bienestar de los hijos con enfoque legal y humano. Cada familia merece soluciones justas y responsables.</p>
-      <button onclick="abrirFormulario('patria')">Más información</button>
-    </div>
-
-    <div class="servicio-card">
-      <img src="images/icon_sucesion.jpg" alt="Sucesión Testamentaria" />
-      <h3 class="fade-slide-up">Sucesión Testamentaria</h3>
-      <p class="fade-slide-up">Te ayudamos a gestionar herencias, testamentos y particiones con orden y legalidad. Evita conflictos familiares y asegura que tus decisiones se respeten. La planificación sucesoria es un acto de responsabilidad y amor.</p>
-      <button onclick="abrirFormulario('sucesion')">Más información</button>
-    </div>
-
-  </div>
-
-</section>
-
-  
-
-<section id="contacto" class="seccion hidden">
-
-  <!-- Imagen fija institucional -->
-  <img src="images/image_3.png" alt="Contáctanos" class="imagen-contacto" />
-
-  <h2>Contáctanos</h2>
-
-<form id="consulta-form">
-
-  <label>
-    <span>Agende fecha y hora:</span>
-    <input type="datetime-local" name="fechaHora" required />
-  </label>
-
-  <label>
-    <span>Elija la especialidad:</span>
-    <select id="especialidad" name="especialidad" required>
-        <option value="alimentos">Alimentos</option>
-        <option value="tenencia">Demanda de tenencia</option>
-        <option value="civil">Derecho Civil</option>
-        <option value="penal">Derecho Penal</option>
-        <option value="sunarp">SUNARP</option>
-        <option value="indecopi">INDECOPI</option>
-        <option value="empresas">Constitución de empresas</option>
-        <option value="patria">Patria Potestad</option>
-        <option value="sucesion">Sucesión Testamentaria</option>
-    </select>
-  </label>
-
-  <label>
-    <span>Bríndenos su celular:</span>
-    <input type="tel" name="telefono" required />
-  </label>
-
-  <label>
-    <span>Detalle su consulta:</span>
-    <textarea name="consulta" rows="5" required></textarea>
-  </label>
-
-  <button type="submit">Enviar</button>
-</form>
-
-
-  
-</section>
-
-
-
-  <footer>
-  <p>&copy; 2025 ROJAS & ABOGADOS ASOCIADOS</p>
-  <p><a href="mailto:dra.gloriamariarojas@gmail.com" style="color: white;">Contáctanos</a> | <a href="#" style="color: white;">Política de privacidad</a></p>
-</footer>
-
-  <a href="https://wa.me/51906363300" class="whatsapp-float" target="_blank">
-    <img src="images/icon-whatsapp.svg" alt="WhatsApp" />
+  <a class="whatsapp-flotante" href="https://wa.me/51906363300?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20legal." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg><use href="#i-wa"/></svg>
   </a>
 
+  <script>
+  (function () {
+    var WHATSAPP = "51906363300";
+    var CORREO = "dra.gloriamariarojas@gmail.com";
 
-<script>
-  function abrirFormulario(especialidad) {
-    const modal = document.getElementById("modal-contacto");
-    const select = document.getElementById("especialidad");
+    // Año del pie
+    document.getElementById("anio").textContent = new Date().getFullYear();
 
-    if (modal) {
-      modal.classList.remove("hidden");
-    }
-
-    if (select) {
-      select.value = especialidad;
-      select.classList.add("select-resaltado");
-    }
-  }
-
-  function cerrarModal() {
-    const modal = document.getElementById("modal-contacto");
-    if (modal) {
-      modal.classList.add("hidden");
-    }
-  }
-
-  // Cierre con tecla Escape
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-      cerrarModal();
-    }
-  });
-</script>
-
-
-</body>
-</html>  
-
-<script>
-  // Modo oscuro con texto dinámico
-  const themeToggle = document.getElementById("theme-toggle");
-
-  function actualizarBotonTema() {
-    if (document.body.classList.contains("dark-mode")) {
-      themeToggle.innerHTML = "🌞 MODO CLARO";
-    } else {
-      themeToggle.innerHTML = "🌙 MODO OSCURO";
-    }
-  }
-
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    actualizarBotonTema();
-  });
-
-  // Inicializa el texto del botón al cargar
-  actualizarBotonTema();
-
-  // Navegación entre secciones
-  const links = document.querySelectorAll("nav a[data-section]");
-  const secciones = document.querySelectorAll(".seccion");
-
-links.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const target = link.getAttribute("data-section");
-
-    secciones.forEach(sec => {
-      sec.classList.remove("visible");
-      sec.classList.add("hidden");
+    // Menú en celular
+    var botonMenu = document.querySelector(".abrir-menu");
+    var menu = document.getElementById("menu");
+    botonMenu.addEventListener("click", function () {
+      var abierto = menu.classList.toggle("abierto");
+      botonMenu.setAttribute("aria-expanded", abierto);
+    });
+    menu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) { menu.classList.remove("abierto"); botonMenu.setAttribute("aria-expanded", "false"); }
     });
 
-    const activa = document.getElementById(target);
-    if (activa) {
-      activa.classList.remove("hidden");
-      activa.classList.add("visible");
+    // La fecha preferida no puede ser pasada
+    var fecha = document.getElementById("fecha");
+    var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+    fecha.min = hoy.toISOString().slice(0, 10);
 
-      // Reiniciar animación en SERVICIOS
-      if (target === "servicios") {
-        const elementos = activa.querySelectorAll(".fade-slide-up");
-        elementos.forEach(el => {
-          el.style.animation = "none"; // ← reinicia
-          void el.offsetWidth;         // ← fuerza reflow
-          el.style.animation = "fadeSlideUp 1s ease-out forwards"; // ← reaplica
-        });
+    // "Consultar sobre..." lleva al formulario con el tema elegido
+    var form = document.getElementById("form-consulta");
+    var tema = document.getElementById("tema");
+    var campoTema = document.getElementById("campo-tema");
+    document.querySelectorAll("[data-tema]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        tema.value = b.getAttribute("data-tema");
+        campoTema.classList.add("resaltado");
+        document.getElementById("contacto").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+        setTimeout(function () { document.getElementById("nombre").focus({ preventScroll: true }); }, 450);
+      });
+    });
+    tema.addEventListener("change", function () { campoTema.classList.remove("resaltado"); });
+
+    // Validación
+    function marcar(id, ok) {
+      var el = document.getElementById(id);
+      var err = document.getElementById("error-" + id);
+      el.setAttribute("aria-invalid", ok ? "false" : "true");
+      if (err) { err.classList.toggle("visible", !ok); if (!ok) el.setAttribute("aria-describedby", err.id); }
+      return ok;
+    }
+    function limpiarCelular(v) { return v.replace(/\D/g, "").replace(/^51(?=9\d{8}$)/, ""); }
+    function validar() {
+      var v = {
+        nombre: form.nombre.value.trim(),
+        celular: limpiarCelular(form.celular.value),
+        tema: form.tema.value,
+        consulta: form.consulta.value.trim()
+      };
+      var ok = [
+        marcar("nombre", v.nombre.length >= 2),
+        marcar("celular", /^9\d{8}$/.test(v.celular)),
+        marcar("tema", v.tema !== ""),
+        marcar("consulta", v.consulta.length >= 10),
+        marcar("acepto", document.getElementById("acepto").checked)
+      ];
+      if (ok.indexOf(false) !== -1) {
+        var primero = form.querySelector('[aria-invalid="true"]');
+        if (primero) primero.focus();
+        return null;
       }
+      return v;
+    }
+    function armarMensaje(v) {
+      var temaTexto = tema.options[tema.selectedIndex].text;
+      var lineas = [
+        "Hola, quisiera hacer una consulta legal.",
+        "",
+        "Nombre: " + v.nombre,
+        "Celular: " + v.celular,
+        "Tema: " + temaTexto
+      ];
+      if (form.fecha.value) {
+        var p = form.fecha.value.split("-");
+        lineas.push("Fecha preferida: " + p[2] + "/" + p[1] + "/" + p[0]);
+      }
+      if (form.horario.value) lineas.push("Horario preferido: " + form.horario.value);
+      lineas.push("", "Consulta:", v.consulta);
+      return lineas.join("\n");
     }
 
-    // Scroll al inicio de la sección
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-
-  // Envío de formulario
-  const form = document.getElementById("consulta-form");
-  if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
-
-      const mailtoLink = `mailto:dra.gloriamariarojas@gmail.com?subject=Consulta%20Legal&body=
-Fecha y hora: ${data.fechaHora}
-Especialidad: ${data.especialidad}
-Teléfono: ${data.telefono}
-Consulta: ${data.consulta}`;
-
-      window.location.href = mailtoLink;
+      var v = validar(); if (!v) return;
+      window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(armarMensaje(v)), "_blank", "noopener");
     });
-  }
 
+    document.getElementById("enviar-correo").addEventListener("click", function () {
+      var v = validar(); if (!v) return;
+      var asunto = "Consulta legal: " + tema.options[tema.selectedIndex].text;
+      window.location.href = "mailto:" + CORREO + "?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(armarMensaje(v));
+    });
 
-
-
-function abrirContacto() {
-  const secciones = document.querySelectorAll(".seccion");
-  secciones.forEach(sec => {
-    sec.classList.remove("visible");
-    sec.classList.add("hidden");
-  });
-
-  const contacto = document.getElementById("contacto");
-  if (contacto) {
-    contacto.classList.remove("hidden");
-    contacto.classList.add("visible");
-  }
-}
-
-
-</script>
+    // Quitar el error apenas el usuario corrige
+    ["nombre", "celular", "tema", "consulta", "acepto"].forEach(function (id) {
+      var el = document.getElementById(id);
+      el.addEventListener(id === "acepto" || id === "tema" ? "change" : "input", function () {
+        if (el.getAttribute("aria-invalid") === "true") {
+          var err = document.getElementById("error-" + id);
+          el.setAttribute("aria-invalid", "false");
+          if (err) err.classList.remove("visible");
+        }
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
